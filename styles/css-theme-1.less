@@ -1,0 +1,194 @@
+/**
+ * @file styles/css-theme-1.less
+ *
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * @brief Custom theme 1 of Clarity (HealthSciences)
+ *
+ */
+
+ // Set colour palette
+@black: #252525;
+
+// General
+body {
+	font-weight: 300;
+		font-size: 1.25rem;
+}
+
+p {
+	margin: 1.5rem 0;
+}
+
+img {
+	-webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+	transition: all 200ms ease-in;
+
+	&:hover, &:focus, &:active {
+		-webkit-filter: grayscale(0);
+	  filter: grayscale(0);
+	}
+}
+
+// Page layout elements
+.main-header {
+	background-color: transparent;
+	border-bottom: 1px solid @mid-grey;
+}
+
+.page-header {
+	margin: 2rem 0 1rem 0;
+}
+
+.page-content {
+	padding-top: 0;
+	border: 0;
+	p, li {
+		font-size: 1.25rem;
+	}
+}
+
+.site-footer {
+	background-color: @primary;
+	color: @contrast;
+
+	a {
+		color: @contrast;
+	}
+}
+
+// Components
+.alert-primary {
+	a {
+		color: @contrast;
+	}
+}
+
+.article-summary-authors,
+.article-summary-pages {
+	font-size: 1rem;
+	color: @black;
+}
+
+.homepage-image-behind-issue {
+	background: @primary;
+	opacity: 0.65;
+
+	&:after {
+		background: transparent;
+	}
+
+	img {
+		mix-blend-mode: screen;
+	  -webkit-filter: grayscale(100%) contrast(200%);
+	  filter: grayscale(100%) contrast(200%);
+	  opacity: 1;
+	}
+
+	+ .container-homepage-issue {
+
+		.homepage-issue-current,
+		.homepage-issue-identifier,
+		.homepage-issue-published {
+			color: @dark-grey;
+			text-shadow: 0 0 2px #FFF;
+		}
+	}
+}
+
+.page-issue-description-wrapper,
+.homepage-issue-description-wrapper,
+.article-details-main,
+.search-filters {
+	padding: 2rem 0;
+	background: transparent;
+	border-top: 1px solid @mid-grey;
+	border-bottom: 1px solid @mid-grey;
+
+	.h2 {
+		margin-bottom: 0;
+		text-align: left;
+	}
+}
+
+.homepage-issue-description {
+	&:after {
+		background-image: linear-gradient(rgba(255,255,255,0), #FFF 10%)
+	}
+}
+
+.issue-toc {
+	counter-reset: article;
+
+	.article-summary {
+		z-index: 0;
+		margin: 5rem 0 8rem 0;
+		padding-bottom: 2em;
+		border-bottom: 1px solid @mid-grey;
+
+
+		&:before {
+			counter-increment: article;
+			content: counter(article);
+			color: fade(@primary, 25%);
+		  position: absolute;
+			left: -35px;
+		  z-index: -10;
+		  font-weight: bold;
+		  font-size: 175px;
+		}
+	}
+}
+
+.issue-toc-section-title {
+	color: @primary;
+}
+
+.page-issue .issue-toc {
+	.article-summary:before {
+		margin-top: -125px;
+	}
+}
+
+#primaryNav, #userNav, #languageLargeNav {
+	.dropdown-item {
+		border: 0;
+		color: @contrast;
+
+		&:hover,
+		&:focus,
+		&:active {
+			color: @contrast;
+			background-color: fade(contrast(@contrast), 50%);
+		}
+	}
+
+	.nav-link {
+		border: 0;
+		&:hover,
+		&:focus,
+		&:active {
+			border: 0;
+			background: @primary;
+			color: @contrast;
+		}
+	}
+}
+
+
+// Form elements
+.btn {
+	background: transparent;
+	color: @black;
+}
+
+.btn-primary {
+	&:hover, &:focus, &:active {
+		background-color: @primary !important;
+		border-color: @primary !important;
+		color: @contrast;
+	}
+}
